@@ -11,8 +11,13 @@
 		</script>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 
-		<script>
-			
+		<script type="text/javascript">
+			sap.ui.getCore().attachInit(function () {
+				// create a mobile app and display page1 initially
+				var app = new sap.m.App("myApp", {
+					initialPage: "page1"
+				});
+			});
 		</script>
 
 	</head>
