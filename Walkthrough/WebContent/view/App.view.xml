@@ -5,4 +5,10 @@
 	<Text text="Hello World from view.App.view.xml"/>
 	<Button text="Say Hello"
 			press="onShowHello"/>
+	<Input
+		value="{/recipient/name}"
+		description="Hello {/recipient/name}"
+		valueLiveUpdate="true"
+		width="60%"/>
+	<Text text="This is value of the input box: {/recipient/name}"/>
 </mvc:View>
