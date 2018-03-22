@@ -8,22 +8,7 @@
 		<pages>
 			<Page title="{i18n>homePageTitle}">
 				<content>
-					<Panel headerText="{i18n>helloPanelTitle}"
-						   class="sapUiResponsiveMargin"
-						   width="auto">
-						<content>
-								<Button text="{i18n>showHelloButtonText}"
-										press="onShowHello"
-										class="myCustoButton"/>
-								<Input
-									value="{/recipient/name}"
-									valueLiveUpdate="true"
-									width="60%"/>
-								<FormattedText htmlText="Hi: {/recipient/name}"
-									  class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
-														
-						</content>
-					</Panel>
+					<mvc:XMLView viewName="sap.ui.demo.walkthrough.view.HelloPanel"/>
 				</content>
 			</Page>
 		</pages>
