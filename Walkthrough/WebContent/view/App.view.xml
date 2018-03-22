@@ -19,7 +19,7 @@
 									value="{/recipient/name}"
 									valueLiveUpdate="true"
 									width="60%"/>
-								<Text text="Hi: {/recipient/name}"
+								<FormattedText htmlText="Hi: {/recipient/name}"
 									  class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
 														
 						</content>
