@@ -5,7 +5,13 @@
 	<List 	headerText="{i18n>invoiceListTitle}"
 			class="sapUiResponsiveMargin"
 			width="auto"
-			items="{invoice>/Invoices}"
+			items="{
+				path: 'invoice>/Invoices',
+				sorter: {
+					path: 'ShipperName',
+					group: true
+					}
+				}"
 			id="invoiceList">
 			<headerToolbar>
 				<Toolbar>
@@ -16,7 +22,7 @@
 			</headerToolbar>
 			<items>
 				<ObjectListItem
-					title="{invoice>Quantity} x {invoice>ProductName}"
+					title="{invoice>ShipperName}: {invoice>Quantity} x {invoice>ProductName}"
 					number="{
 						parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
 						type: 'sap.ui.model.type.Currency',
