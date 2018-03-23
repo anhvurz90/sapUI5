@@ -43,6 +43,34 @@
 		"uri": "Invoices.json"
  		}
 	},
+	"routing" :{
+		"config": {
+			"routerClass": "sap.m.routing.Router",
+			"viewType": "XML",
+			"viewPath": "sap.ui.demo.walkthrough.view",
+			"controlId": "app",
+			"controlAggregation": "pages",
+			"async": true
+		},
+		"routes": [
+			{"pattern": "",
+			 "name": "overview",
+			 "target": "overview"},
+			{"pattern": "detail",
+			 "name": "detail",
+			 "target": "detail"}			 
+		],
+		"targets": {
+			"overview": {
+				"viewID": "overview",
+				"viewName": "Overview"
+			},
+			"detail": {
+				"viewID": "detail",
+				"viewName": "Detail"
+			}
+		}
+	},
 	"resources": {
 	  "css": [
 		{
