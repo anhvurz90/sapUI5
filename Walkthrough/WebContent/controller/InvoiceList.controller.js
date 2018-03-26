@@ -30,8 +30,15 @@ sap.ui.define([
 		},
 		onPress: function(oEvent) {
 			console.log("InvoiceList.controller.js#onPress()");
+			var oItem = oEvent.getSource();
+			var path = oItem.getBindingContext("invoice").getPath();
+			var idx = path.lastIndexOf("/");
+			var order = path.substr(idx + 1);
+			var invoice = this.getOwnerComponent().getModel("invoice").getProperty("/Invoices")[parseInt(order)];
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("detail");
+			oRouter.navTo("detail", {
+				invoicePath: JSON.stringify(invoice)
+			});
 		}
 	});
 });
