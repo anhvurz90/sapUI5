@@ -1,0 +1,96 @@
+<mvc:View 
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:semantic="sap.m.semantic"
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core"
+		xmlns:html="http://www.w3.org/1999/xhtml"
+		xmlns:l="sap.ui.layout"
+		controllerName="empcrud.EmpDetails"> 
+	<Page title="Employee Details">
+		<content>
+			<Table headerText="Employee List"
+						class="sapUiResponsiveMargin"
+						width="auto"
+						noDataText="{globaldata>/nodata}"
+						id="tableId"
+						items="{employees>/results}"
+						itemPress="itemPress">
+					<columns>
+						<Column
+							hAlign="End"
+							minScreenWidth="Small"
+							demandPopin="true"
+							width="1em">
+							<Text text="Emp ID"/>
+						</Column>
+						<Column
+							width="1em">
+							<Text text="Name"/>
+						</Column>
+						<Column
+							width="1em">
+							<Text text="Address"/>
+						</Column>
+						<Column
+							width="1em">
+							<Text text="Description"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem
+							type="Navigation"
+							press="onPress">
+							<cells>
+								<Text text="{employees>Empid}"/>
+								<Text text="{employees>Empname}"/>
+								<Text text="{employees>Empadd}"/>
+								<Text text="{employees>Empdes}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<Button id="btnNewEntry" text="New Entry" press="onNewEntry"/>
+				<Dialog
+					id="formDialog"
+					title="Add/Modify Employee"
+					visible="false">
+					<content>
+					<l:VerticalLayout
+							class="sapUiContentPadding"
+							width="100%">
+							<l:content>
+								<Text text="Enter Emp Id:" id="EmpIdText"  />
+								<Input  id="EmpIdInput"
+										value="{selectedEmployee>/Empid}"
+										valueLiveUpdate="true"
+										width="60%"/>
+
+								<Text text="Enter Name:" id="EmpNameText"  />
+								<Input  id="EmpNameInput"
+										value="{selectedEmployee>/Empname}"
+										valueLiveUpdate="true"
+										width="60%"/>
+										
+								<Text text="Enter Address:" id="EmpAddText"  />
+								<Input  id="EmpAddInput"
+										value="{selectedEmployee>/Empadd}"
+										valueLiveUpdate="true"
+										width="60%"/>
+								
+								<Text text="Enter Emp Designation:" id="EmpDesText"  />
+								<Input  id="EmpDesInput"
+										value="{selectedEmployee>/Empdes}"
+										valueLiveUpdate="true"
+										width="60%"/>
+								
+							</l:content>
+						</l:VerticalLayout>						
+					</content>
+					<Button id="btnUpdate" text="Update" press="onUpdate"/>
+					<Button id="btnDelete" text="Delete" press="onDelete"/>
+					<Button text="Close" press="onCloseDialog"/>
+					<Button id="btnSave" text="Save" press="onSave"/>
+				</Dialog>
+		</content>
+	</Page>
+</mvc:View>
